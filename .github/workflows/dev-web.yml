@@ -51,4 +51,4 @@ jobs:
         branch: main  # The branch where the site will be deployed
         folder: ./  # The folder with your website files (use './' for root)
         token: ${{ secrets.GITHUB_TOKEN }}    
-
+#Release
