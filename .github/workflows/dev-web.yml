@@ -22,5 +22,11 @@ jobs:
     - name: Run Stylelint
       run: stylelint "style.css"
 
+    - name: Install Puppeteer
+      run: |
+        npm init -y
+        npm install puppeteer
+
+
     
 
