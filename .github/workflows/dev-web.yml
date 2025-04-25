@@ -1,0 +1,28 @@
+name: WEB-CI/CD
+
+on:
+  push:
+    branches: ["Dev-MurderMystery-Web"]
+  pull_request:
+    branches: ["Dev-MurderMystery-Web"]  
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Node & Lint Tools
+      run: |
+        npm install -g htmlhint stylelint stylelint-config-standard
+
+    - name: Run HTMLHint
+      run: htmlhint index.html
+
+    - name: Run Stylelint
+      run: stylelint "style.css"
+
+    
+
