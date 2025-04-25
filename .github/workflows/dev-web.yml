@@ -1,0 +1,54 @@
+name: WEB-CI/CD
+
+on:  
+  pull_request:
+    branches: ["Dev-MurderMystery-Web"]  
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Node & Lint Tools
+      run: |
+        npm install -g htmlhint stylelint stylelint-config-standard
+
+    - name: Run HTMLHint
+      run: htmlhint index.html
+
+    - name: Run Stylelint
+      run: stylelint "style.css"
+
+    - name: Install Puppeteer
+      run: |
+        npm init -y
+        npm install puppeteer
+    
+    - name: Install Chrome
+      run: |
+        sudo apt update
+        sudo apt install -y wget
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+    - name: Run Integration Tests
+      run: node smoke-test.js
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: lint  # Only run deploy if lint job passes
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: main  # The branch where the site will be deployed
+        folder: ./  # The folder with your website files (use './' for root)
+        token: ${{ secrets.GITHUB_TOKEN }}    
+#Release
