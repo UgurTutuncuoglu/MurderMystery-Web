@@ -11,25 +11,25 @@ const puppeteer = require('puppeteer');
     console.log(`Opening: ${filePath}`);
     await page.goto(filePath);
 
-    // ✅ Check page title
+    // Check page title
     const title = await page.title();
     if (title !== "Murder Mystery") {
-      throw new Error(`❌ Title mismatch. Expected "Murder Mystery" but got "${title}"`);
+      throw new Error(` Title mismatch. Expected "Murder Mystery" but got "${title}"`);
     }
 
-    // ✅ Check download button
+    //  Check download button
     const buttonExists = await page.$('a.btn');
     if (!buttonExists) {
-      throw new Error("❌ Download button not found");
+      throw new Error(" Download button not found");
     }
 
-    // ✅ Check background element exists
+    //  Check background element exists
     const bgExists = await page.$eval('.background', el => !!el);
     if (!bgExists) {
-      throw new Error("❌ Background element missing");
+      throw new Error(" Background element missing");
     }
 
-    console.log("✅ Smoke tests passed successfully");
+    console.log(" Smoke tests passed successfully");
     await browser.close();
 
   } catch (error) {
