@@ -1,8 +1,6 @@
 name: WEB-CI/CD
 
-on:
-  push:
-    branches: ["Dev-MurderMystery-Web"]
+on:  
   pull_request:
     branches: ["Dev-MurderMystery-Web"]  
 
@@ -23,6 +21,12 @@ jobs:
 
     - name: Run Stylelint
       run: stylelint "style.css"
+
+    - name: Install Puppeteer
+      run: |
+        npm init -y
+        npm install puppeteer
+
 
     
 
