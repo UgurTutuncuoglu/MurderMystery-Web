@@ -1,0 +1,15 @@
+{
+  "name": "murdermystery---web",
+  "version": "1.0.0",
+  "main": "smoke-test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "puppeteer": "^24.7.2"
+  }
+}

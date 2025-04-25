@@ -26,6 +26,9 @@ jobs:
       run: |
         npm init -y
         npm install puppeteer
+    
+    - name: Install Puppeteer Chrome
+      run: npx puppeteer browsers install chrome
 
     - name: Run Integration Tests
       run: node smoke-test.js
