@@ -27,6 +27,7 @@ jobs:
         npm init -y
         npm install puppeteer
 
-
+    - name: Run Integration Tests
+      run: node smoke-test.js
     
 
