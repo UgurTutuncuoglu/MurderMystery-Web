@@ -1,8 +1,6 @@
 name: WEB-CI/CD
 
-on:
-  push:
-    branches: ["Dev-MurderMystery-Web"]
+on:  
   pull_request:
     branches: ["Dev-MurderMystery-Web"]  
 
