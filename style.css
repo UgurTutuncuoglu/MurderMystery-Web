@@ -1,11 +1,9 @@
-/* Background Image Styling */
 .background {
   background: url('village.jpg') no-repeat center center/cover;
   height: 100vh;
   position: relative;
 }
 
-/* Dark Overlay for Image */
 .background::before {
   content: "";
   position: absolute;
@@ -16,7 +14,6 @@
   background: rgba(0, 0, 0, 0.6); /* Dark overlay */
 }
 
-/* Center Content */
 .content {
   position: relative;
   z-index: 2;
